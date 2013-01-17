@@ -1,4 +1,4 @@
-Resize, crop, and cache photos from Amazon S3.
+Resize, crop, and cache photos from Amazon S3 with PHP.
 
 # Description
 
@@ -6,13 +6,17 @@ Pull an image from from S3 and resize/crop it. This script depends on ImageMagic
 
 Please keep in mind that this script is NOT the best way to do this. See [here](http://www.binarymoon.co.uk/2010/11/timthumb-cdn-amazon-s3-good/) for details on what else you can do, from someone who knows a lot more about this than I do. This script is good for if you're only using S3 to save on storage space, and I wouldn't recommend using it for large sites with a lot of photos and a lot of users (though there's nothing stopping you from putting Cloudfront in front of this for CDN benefits).
 
-# Usage
+## Usage
 
 Put these files in /resize/ in the root of your web directory. Create `assets/config.php` and enter your S3 details. Load images like this:
 
 ```
 http://example.com/resize/640x480.-50/path/to/image/in/s3.jpg
-or, without mod_rewrite:
+```
+
+Or, without mod_rewrite:
+
+```
 http://example.com/resize/resize.php?src=/path/to/image/in/s3.jpg&query=640x480.-50
 ```
 
@@ -20,14 +24,14 @@ The resulting image will have a width of 640px, height of 480px, and a crop offs
 
 This is still a work in progress and still kinda sucks. Use at your own risk.
 
-# To-do
+## To-do
 
 * Cleanup the code
 * Fully implement size restrictions
 * Image optimization
 * Better garbage collection, delete empty folders
 
-# License
+## License
 
 Copyright (c) 2013 Chris Voll
 
@@ -37,6 +41,6 @@ The above copyright notice and this permission notice shall be included in all c
 
 THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-# Credit
+## Credit
 
 Credit goes to [timthumb](http://code.google.com/p/timthumb/) for the inspiration to make a lighter weight image resizing script that works well with Amazon S3, and to Adam Whitcroft for the excellent [Batch iconset](http://adamwhitcroft.com/batch/) that I used for the 404 image.

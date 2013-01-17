@@ -1,0 +1,1 @@
+Resize and crop images from S3

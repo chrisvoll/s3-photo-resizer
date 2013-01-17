@@ -1,0 +1,8 @@
+Options -MultiViews
+RewriteEngine On
+RewriteBase /resize/
+RewriteRule ^([0-9x\.\-]+)?/(.*)?$ cache/$2/$1.cache
+
+RewriteCond %{REQUEST_FILENAME} !-f
+
+RewriteRule ^cache/(.*)?/([0-9x\.\-]+)?\.cache$ resize.php?query=$2&src=$1 [L]

@@ -1,37 +1,27 @@
 <?php
 /**
  * S3 Photo Resizer
+ * v1.0b3
  * 
- * Pull an image from from S3 and resize/crop/cache it. This depends on ImageMagick
- * for the fastest possible resizing, and Amazon's S3 SDK for PHP for S3 integration.
- * Files are cached locally and served using .htaccess or PHP.
+ * Copyright (c) 2013 Chris Voll
  *
- * Please keep in mind that this script is NOT the best way to do this. See
- * http://www.binarymoon.co.uk/2010/11/timthumb-cdn-amazon-s3-good/ for details
- * on what else you can do, from the creator of timthumb. This script is good
- * for if you're only using S3 to save on storage space (though there's nothing
- * stopping you from putting Cloudfront in front of this for CDN benefits).
+ * Permission is hereby granted, free of charge, to any person obtaining a 
+ * copy of this software and associated documentation files (the "Software"), 
+ * to deal in the Software without restriction, including without limitation 
+ * the rights to use, copy, modify, merge, publish, distribute, sublicense, 
+ * and/or sell copies of the Software, and to permit persons to whom the 
+ * Software is furnished to do so, subject to the following conditions:
  *
- * Usage: Create assets/config.php and enter your S3 details. Load images like this:
- * 
- * > /resize/640x480.-50/path/to/image/in/s3.jpg
- * 
- * The resulting image will have a width of 640px, height of 480px, and a crop offset
- * of -50% from the center of the image.
+ * The above copyright notice and this permission notice shall be included 
+ * in all copies or substantial portions of the Software.
  *
- * This is still a work in progress and still kinda sucks. Use at your own risk.
- *
- * @author Chris Voll
- * @version 1.0b3
- *
- * @param (src)   image path in the S3 bucket
- * @param (query) query string (see below)
- *
- * @todo cleanup
- * @todo readme
- * @todo fully implement size restrictions
- * @todo investigate image optimizing
- * @todo better garbage collection, delete empty folders
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS 
+ * OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, 
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL 
+ * THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR 
+ * OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, 
+ * ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR 
+ * OTHER DEALINGS IN THE SOFTWARE.
  */
 
 require('assets/config.php');

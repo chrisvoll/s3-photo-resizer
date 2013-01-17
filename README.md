@@ -4,11 +4,11 @@ Resize, crop, and cache photos from Amazon S3 with PHP.
 
 Pull an image from from S3 and resize/crop it. This script depends on ImageMagick for the fastest possible resizing, and Amazon's S3 SDK. Files are cached locally and served using .htaccess or PHP.
 
-Please keep in mind that this script is NOT the best way to do this. See [here](http://www.binarymoon.co.uk/2010/11/timthumb-cdn-amazon-s3-good/) for details on what else you can do, from someone who knows a lot more about this than I do. This script is good for if you're only using S3 to save on storage space, and I wouldn't recommend using it for large sites with a lot of photos and a lot of users (though there's nothing stopping you from putting Cloudfront in front of this for CDN benefits).
+Please keep in mind that this script is NOT the best way to do on-the-fly image resizing. See [here](http://www.binarymoon.co.uk/2010/11/timthumb-cdn-amazon-s3-good/) for other options, from someone who knows a lot more about these things than I do. If you're only using S3 to save on disk space, this script should fit your needs, but I wouldn't recommend using it for large sites with a lot of images and users (though there's nothing stopping you from putting Cloudfront in front of it for CDN benefits).
 
 ## Usage
 
-Put these files in /resize/ in the root of your web directory. Create `assets/config.php` and enter your S3 details. Load images like this:
+Put the files in /resize/ in the root of your web directory. Create `assets/config.php` and enter your S3 details, and make sure that ImageMagick is installed and your server user can run `convert`. Create a /resize/cache directory that your server user can write to (or it will attempt to create one). Load images like this:
 
 ```
 http://example.com/resize/640x480.-50/path/to/image/in/s3.jpg

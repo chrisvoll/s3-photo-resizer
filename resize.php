@@ -204,8 +204,8 @@ function getPath($type, $filename) {
  * Delete expired cache objects
  */
 function garbageCollect() {
-  // find ./cache/* -atime +3600s -delete
-  $command = 'find ' . option('cache_dir') . '* -atime +' . option('ttl') . 's -delete';
+  // find ./cache/* -cmin +60 -delete
+  $command = 'find ' . option('cache_dir') . '* -cmin +' . option('ttl') . 's -delete';
   $output = `$command`;
 }
 

@@ -1,3 +1,6 @@
+**NOTE:** This is out of date. I plan to replace it with a python script that will include facial recognition to automatically crop photos.
+
+
 On-the-fly image resizing and cropping from Amazon S3 with PHP.
 
 # Description
